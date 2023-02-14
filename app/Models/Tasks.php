@@ -17,6 +17,13 @@ class Tasks extends Model
     protected $table = 'tasks';
 
     /**
+     * Атрибуты, для которых разрешено массовое присвоение значений.
+     *
+     * @var array
+     */
+    protected $fillable = ['taskname','image'];
+
+    /**
      * Теги, привязанные к задаче.
      */
     public function tags(){

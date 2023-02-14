@@ -6,7 +6,7 @@ use App\Models\Tasks;
 use App\Models\Tags;
 use Illuminate\Http\Request;
 
-class TaskController extends Controller
+class FrontController extends Controller
 {
     /**
      * Показать главную страницу.
