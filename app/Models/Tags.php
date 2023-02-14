@@ -15,6 +15,12 @@ class Tags extends Model
      * @var string
      */
     protected $table = 'tags';
+    /**
+     * Атрибуты, для которых разрешено массовое присвоение значений.
+     *
+     * @var array
+     */
+    protected $fillable = ['tagname'];
 
     /**
      * Задачи, привязанные тегу.

@@ -26,6 +26,9 @@
     <h1 class="main-tilte">Личный кабинет пользователя:{{ Auth::user()->name }}</h1>
     <div class="main-table">
         <a href="{{ route('tasks.create') }}" class="btn btn-success">Добавить задачу</a>
+
+        <a href="{{ route('tags.index') }}" class="btn btn-success">Работа с тегами</a>
+
         <table class="table">
             <thead>
             <tr>
