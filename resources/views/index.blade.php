@@ -22,6 +22,7 @@
         <a href="{{ route('seltags',$tag->id)}}" class="btn btn-info"> {{ $tag->tagname }}</a>
     @endforeach
 
+
 <h1 class="main-tilte">Список задач</h1>
 <div class="main-table">
 

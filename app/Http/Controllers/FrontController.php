@@ -24,8 +24,8 @@ class FrontController extends Controller
         }
 
         //$tasks = Tasks::whereIn('id', $tasks_id)->get();
-        $tags = Tags::all();
 
+        $tags = Tags::all();
         return view('index',['tasks'=>$tasks,'out_tags'=>$out_tags,'tags'=>$tags]);
     }
 
@@ -37,8 +37,6 @@ class FrontController extends Controller
     }
 
     public function seltags($id){
-
         // Создать запрос извлечение постов, которые относятся к данному тегу
-
     }
 }
