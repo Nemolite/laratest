@@ -22,6 +22,23 @@ class FrontController extends Controller
                     $out_tags[$task->id][] = $tag;
                 }
         }
-        return view('index',['tasks'=>$tasks,'out_tags'=>$out_tags]);
+
+        //$tasks = Tasks::whereIn('id', $tasks_id)->get();
+        $tags = Tags::all();
+
+        return view('index',['tasks'=>$tasks,'out_tags'=>$out_tags,'tags'=>$tags]);
+    }
+
+    public function search(Request $request){
+
+        $value = $request->search;
+        $search = Tasks::where('taskname', 'LIKE', '%'.$value.'%')->get();
+        return view('search',['search'=>$search]);
+    }
+
+    public function seltags($id){
+
+        // Создать запрос извлечение постов, которые относятся к данному тегу
+
     }
 }

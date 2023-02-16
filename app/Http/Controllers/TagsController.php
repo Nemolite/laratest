@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Tags;
 use App\Models\Tasks;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class TagsController extends Controller
 {
@@ -56,7 +58,8 @@ class TagsController extends Controller
      */
     public function show($id)
     {
-        //
+        $tag = Tags::find($id);
+        return view('tags.show',['tag'=>$tag]);
     }
 
     /**
@@ -67,7 +70,8 @@ class TagsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $tag = Tags::find($id);
+        return view('tags.edit',['tag'=>$tag]);
     }
 
     /**
@@ -79,7 +83,10 @@ class TagsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $tag = Tags::find($id);
+        $tag->tagname = $request->updatetagname;
+        $tag->save();
+        return response('Тег изменен');
     }
 
     /**
@@ -90,6 +97,11 @@ class TagsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        DB::table('tags_tasks')->where('tags_id', '=', $id)->delete();
+
+        $tag = Tags::find($id);
+        $tag->delete();
+        return response('Тег удален');
+
     }
 }

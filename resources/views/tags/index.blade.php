@@ -19,12 +19,14 @@
             @foreach ($tags as $tag)
                 <tr>
                     <th scope="row">{{ $loop->iteration }}</th>
-                    <td>{{ $tag->tagname }}</td>
                     <td>
-                        <a href="">Изменить</a>
+                        <a href="{{ route('tags.show',$tag->id) }}">{{ $tag->tagname }}</a>
                     </td>
                     <td>
-                        <a href="">Удалить</a>
+                        <a href="{{ route('tags.edit',$tag->id) }}" class="btn btn-warning">Изменить</a>
+                    </td>
+                    <td>
+                         <a href="{{ route('tags.deleteone',$tag->id) }}" class="btn btn-danger">Удалить тег </a>
                     </td>
                 </tr>
             @endforeach

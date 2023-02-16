@@ -56,11 +56,8 @@
                                 <a href="{{ route('tasks.edit',$task->id)}}" class="btn btn-warning">Изменить</a>
                             </td>
                             <td>
-                                <form name="deletetaskform" id="deletetaskform" method="POST" enctype="multipart/form-data" action="{{ route('tasks.destroy',$task->id)}}">
-                                    @csrf
-                                    @method('delete')
-                                    <input type="submit" name="deletebtn" id="deletebtn" value="Удалить" class="btn btn-danger">
-                                <form>
+
+                                <a href="{{ route('tasks.deleteone',$task->id) }}" class="btn btn-danger">Удалить тег </a>
                             </td>
                         </tr>
 

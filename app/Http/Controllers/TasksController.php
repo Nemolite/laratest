@@ -50,6 +50,7 @@ class TasksController extends Controller
             ]);
 
             $task = Tasks::create(['taskname' => $request->taskname,'image'=>$image]);
+
             DB::insert('insert into tags_tasks (tags_id, tasks_id) values (?, ?)', [$request->tags, $task->id]);
             DB::insert('insert into users_tasks (users_id, tasks_id) values (?, ?)', [Auth::id(), $task->id]);
 
@@ -86,11 +87,11 @@ class TasksController extends Controller
     public function edit($id)
     {
         $task = Tasks::find($id);
-
-        foreach ($task->tags as $tag){
+        $out_tags = [];
+        $tags = Tasks::find($task->id);
+        foreach ($tags->tags as $tag){
             $out_tags[$task->id][] = $tag;
         }
-
         $tags = Tags::all();
         return view('tasks.edit',['task'=>$task,'tags'=>$tags,'out_tags'=>$out_tags]);
     }
@@ -137,6 +138,7 @@ class TasksController extends Controller
     public function destroy($id)
     {
 
+        DB::table('tags_tasks')->where('tasks_id', '=', $id)->delete();
         $task = Tasks::find($id);
         $task->delete();
 
