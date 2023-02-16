@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [FrontController::class, 'index'])->name('index');
+Route::post('/search', [FrontController::class, 'search'])->name('search');
 
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -28,7 +29,16 @@ Route::get('/tasks/{id}/edit', [TasksController::class, 'edit'])->name('tasks.ed
 Route::patch('/tasks/{id}', [TasksController::class, 'update'])->name('tasks.update');
 Route::delete('/tasks/{id}', [TasksController::class, 'destroy'])->name('tasks.destroy');
 
+Route::get('/tasks/{id}/deleteone', [TasksController::class, 'destroy'])->name('tasks.deleteone');
+
+
 Route::get('/tags', [TagsController::class, 'index'])->name('tags.index');
 Route::get('/tags/create', [TagsController::class, 'create'])->name('tags.create');
 Route::post('/tags', [TagsController::class, 'store'])->name('tags.store');
+Route::get('/tags/{id}', [TagsController::class, 'show'])->name('tags.show');
+Route::get('/tags/{id}/edit', [TagsController::class, 'edit'])->name('tags.edit');
+Route::patch('/tags/{id}', [TagsController::class, 'update'])->name('tags.update');
+Route::delete('/tags/{id}', [TagsController::class, 'destroy'])->name('tags.destroy');
+
+Route::get('/tags/{id}/deleteone', [TagsController::class, 'destroy'])->name('tags.deleteone');
 

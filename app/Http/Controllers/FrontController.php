@@ -22,6 +22,17 @@ class FrontController extends Controller
                     $out_tags[$task->id][] = $tag;
                 }
         }
+
+        //$tasks = Tasks::whereIn('id', $tasks_id)->get();
+
+
         return view('index',['tasks'=>$tasks,'out_tags'=>$out_tags]);
+    }
+
+    public function search(Request $request){
+
+        $value = $request->search;
+        $search = Tasks::where('taskname', 'LIKE', '%'.$value.'%')->get();
+        return view('search',['search'=>$search]);
     }
 }
