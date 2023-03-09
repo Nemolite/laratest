@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+                <div class="card-header">{{ __('Панель управления') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                        Личный кабинет пользователя:<h3>{{ Auth::user()->name }}</h3>
                 </div>
             </div>
         </div>
@@ -23,7 +23,6 @@
 @endsection
 
 @section('taskscontent')
-    <h1 class="main-tilte">Личный кабинет пользователя:{{ Auth::user()->name }}</h1>
     <div class="main-table">
         <a href="{{ route('tasks.create') }}" class="btn btn-success">Добавить задачу</a>
 

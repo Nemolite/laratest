@@ -11,15 +11,16 @@
                 @endforeach
             </div>
             <div class="col-sm-10">
-                <h4 class="main-tilte">Список задач</h4>
+                <h4 class="main-tilte">Список всех задач для всех пользователей</h4>
                 <div class="main-table">
 
                     <table class="table">
                         <thead>
                         <tr>
-                            <th scope="col">"№ задачи</th>
+                            <th scope="col">№ задачи</th>
                             <th scope="col">Описание задачи</th>
-                            <th scope="col">Image</th>
+                            <th scope="col">Миниатюра</th>
+                            <th scope="col">Пользователи</th>
                         </tr>
                         </thead>
 
@@ -34,6 +35,9 @@
                                     <a href="{{ Storage::url ( $task->image  ) }}" target="_blank">
                                         <img width="150px" height="150px" src="/public{{ Storage::url ( $task->image  ) }}" alt="">
                                     </a>
+                                </td>
+                                <td>
+
                                 </td>
                             </tr>
                         @endforeach
