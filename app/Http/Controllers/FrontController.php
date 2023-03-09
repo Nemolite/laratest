@@ -39,4 +39,8 @@ class FrontController extends Controller
     public function seltags($id){
         // Создать запрос извлечение постов, которые относятся к данному тегу
     }
+
+    public function selcat($id){
+
+    }
 }
