@@ -139,9 +139,10 @@ class TasksController extends Controller
     {
 
         DB::table('tags_tasks')->where('tasks_id', '=', $id)->delete();
+        DB::table('users_tasks')->where('tasks_id', '=', $id)->delete();
         $task = Tasks::find($id);
         $task->delete();
 
-        return response('Задача удалена');
+        return redirect('home');
     }
 }

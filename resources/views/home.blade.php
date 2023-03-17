@@ -56,7 +56,7 @@
                             </td>
                             <td>
 
-                                <a href="{{ route('tasks.deleteone',$task->id) }}" class="btn btn-danger">Удалить тег </a>
+                                <a href="{{ route('tasks.deleteone',$task->id) }}" class="btn btn-danger">Удалить задачу </a>
                             </td>
                         </tr>
 
