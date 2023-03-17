@@ -47,7 +47,7 @@ class TagsController extends Controller
             $tags = Tags::create(['tagname' => $request->tagname]);
         }
 
-        return response('Тег сохранен');
+        return redirect('tags');
     }
 
     /**
@@ -86,7 +86,7 @@ class TagsController extends Controller
         $tag = Tags::find($id);
         $tag->tagname = $request->updatetagname;
         $tag->save();
-        return response('Тег изменен');
+        return redirect('tags');
     }
 
     /**
@@ -101,7 +101,7 @@ class TagsController extends Controller
 
         $tag = Tags::find($id);
         $tag->delete();
-        return response('Тег удален');
+        return redirect('tags');
 
     }
 }
